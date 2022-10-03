@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        font-family: sans-serif;
+    }
+  .container {
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .container .tab-sec {
+    width: 700px;
+    background-color: white;
+    height: 450px;
+  }
+  .tob-sec {
+    display: flex;
+    justify-content: space-around;
+  }
+  .bottom-sec {
+    display: flex;
+    margin-top: 70px;
+    margin-left: 50px;
+  }
+  .box-one {
+    flex: 1;
+    height: 125px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    background-color: #fdf8fa;
+    flex-direction: column;
+  }
+  .box-one h3 {
+    margin: 0;
+    font-weight: 400;
+    font-size: 16px;
+    color: #9ba0a4;
+  }
+  .bottom-sec {
+    position: relative;
+  }
+  .img-sec {
+    position: absolute;
+    right: 0;
+  }
+  .bottom-sec  .content-sec{
+    display: none;
+  }
+  .bottom-sec h1 {
+    color: #c137d2;
+    margin-left: 35px;
+    font-weight: 600;
+    font-size: 25px;
+  }
+  .bottom-sec .content {
+    max-width: 300px;
+    margin-left: 36px;
+    margin-top: 22px;
+    font-size: 17px;
+  }
+  .btn-active {
+    background-color: #e9a0ef2b;
+  }
+</style>
+<body>
+  <div class="container">
+    <div class="tab-sec">
+      <div class="tob-sec">
+        <div class="box-one" onclick="showTab(event,'age-box')">
+            <img src="https://cdn.convertcart.com/uploads/492d047d.png" alt="">
+            <h3>Age</h3>
+        </div>
+        <div class="box-one" onclick="showTab(event, 'occupation-box')">
+            <img src="https://cdn.convertcart.com/uploads/b502a8bc.png" alt="">
+            <h3>Occupation</h3>
+        </div>
+        <div class="box-one" onclick="showTab(event, 'car-type-box')">
+            <img src="https://cdn.convertcart.com/uploads/d97b3407.png" alt="">
+            <h3>Types of car</h3>
+        </div>
+        <div class="box-one" onclick="showTab(event, 'live-box')">
+            <img src="https://cdn.convertcart.com/uploads/8b76b622.png" alt="">
+            <h3>Where you live</h3>
+        </div>
+      </div>
+      <div class="bottom-sec">
+        <div class="content-sec age-box">
+            <h1 class="cont-head">Age</h1>
+            <p class="content">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis sit veniam a consectetur maxime illo facere eos natus, soluta quo neque, temporibus accusamus animi pariatur, voluptatibus illum perspiciatis magni nemo 
+            </p>
+        </div>
+        <div class="content-sec occupation-box">
+            <h1 class="cont-head">Occupation</h1>
+            <p class="content">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.  temporibus accusamus animi pariatur, voluptatibus illum perspiciatis magni nemo Debitis sit veniam a consectetur maxime illo facere eos natus, soluta quo neque, 
+            </p>
+        </div>
+        <div class="content-sec car-type-box">
+            <h1 class="cont-head">Types of car</h1>
+            <p class="content">
+                Lorem ipsum dolor  voluptatibus illum perspiciatis magni nemo Debitis sit veniam a consectetur maxime illo facere eos natus, soluta quo neque, sit amet consectetur adipisicing elit.  temporibus accusamus animi pariatur,
+            </p>
+        </div>
+        <div class="content-sec live-box">
+            <h1 class="cont-head">Where you live</h1>
+            <p class="content">
+                Lorem ipsum dolor  voluptatibus illum perspiciatis natus, soluta quo neque, sit amet consectetur adipisicing elit.  temporibus accusamus animi pariatur, magni nemo Debitis sit veniam a consectetur maxime illo facere eos 
+            </p>
+        </div>
+          <div class="img-sec">
+            <img src="https://cdn.convertcart.com/uploads/ffa16814.png" alt="">
+          </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    function showTab(e,className) {
+      let currentShown = false;
+      var curretnTab = document.getElementsByClassName(className)[0];
+      if (curretnTab.style.display == "block") {
+        currentShown = true;
+      } else {
+        currentShown = false;
+      }
+      var hideTab = document.getElementsByClassName('content-sec');
+      for(let i = 0; i < hideTab.length; i++) {
+        hideTab[i].style.display = "none";
+      }
+      var clickBtn = document.querySelectorAll('.box-one');
+      clickBtn.forEach(element => {
+        element.classList.remove('btn-active');
+      });
+      if (!currentShown) {
+        curretnTab.style.display = "block";
+        e.currentTarget.classList.add('btn-active');
+      }
+    }
+  </script>
+</body>
+</html>
